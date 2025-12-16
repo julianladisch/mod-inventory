@@ -1,0 +1,23 @@
+name: maven
+on:
+  workflow_dispatch:
+jobs:
+  maven:
+    strategy:
+      matrix:
+        runner:
+          - 'ubuntu-latest'
+      fail-fast: false
+    runs-on: ${{ matrix.runner }}
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        submodules: true
+    - uses: actions/setup-java@v5
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+        cache: maven
+    - run: mvn -B clean install > >(tee out)
+      continue-on-error: true
+    - run: tail -10000 out
