@@ -235,6 +235,10 @@
           <groupId>xerces</groupId>
           <artifactId>xmlParserAPIs</artifactId>
         </exclusion>
+        <exclusion>
+          <groupId>com.ongres.scram</groupId>
+          <artifactId>client</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
 
@@ -283,6 +287,11 @@
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-pg-client</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.ongres.scram</groupId>
+      <artifactId>scram-client</artifactId>
+      <version>3.2</version>
     </dependency>
     <dependency>
       <groupId>org.postgresql</groupId>
